@@ -26,7 +26,10 @@ public class TasksService {
 		tasks.setTaskStartDay(tasksDTO.getTaskStartDay());
 		tasks.setTaskEndDay(tasksDTO.getTaskEndDay());
 		tasks.setTaskPriority(tasksDTO.getTaskPriority());
+		tasks.setTaskProgress(tasksDTO.getTaskProgress());
 		tasks.setTaskDescription(tasksDTO.getTaskDescription());
+		tasks.setCreatedBy(tasksDTO.getCreatedBy());
+		tasks.setUpdatedBy(tasksDTO.getUpdatedBy());
 		tasksRepository.save(tasks);
 	}
 }

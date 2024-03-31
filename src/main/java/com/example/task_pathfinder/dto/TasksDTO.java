@@ -22,6 +22,8 @@ public class TasksDTO {
 	private int taskPriority;
 	private int taskProgress;
 	private String taskDescription;
+	private String createdBy;
+	private String updatedBy;
 	
 	public int getId() {
 		return id;
@@ -64,5 +66,17 @@ public class TasksDTO {
 	}
 	public void setTaskDescription(String taskDescription) {
 		this.taskDescription = taskDescription;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
 	}
 }
