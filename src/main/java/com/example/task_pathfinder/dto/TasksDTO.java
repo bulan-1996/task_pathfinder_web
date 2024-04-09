@@ -8,14 +8,18 @@ import java.util.Date;
 public class TasksDTO {
 	/***
 	 * id:
+	 * userId:ユーザーID
 	 * taskTitle:タイトル
 	 * taskStartDay:開始日
 	 * taskEndDay:終了日
 	 * taskPriority:優先度
 	 * taskProgress:進捗
 	 * taskDescription:説明
+	 * createdBy:作成者
+	 * updatedBy:更新者
 	 */
 	private int id;
+	private int userId;
 	private String taskTitle;
 	private Date taskStartDay;
 	private Date taskEndDay;
@@ -30,6 +34,12 @@ public class TasksDTO {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getTaskTitle() {
 		return taskTitle;

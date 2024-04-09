@@ -39,4 +39,24 @@ public class UsersService {
 			usersRepository.save(users);
 		}
 	}
+	
+	// emailアドレスの情報からuserテーブル情報を取得
+	public UsersDTO getUserByEmail(String email) {
+		// Usersテーブルからemailアドレスでidを取得する処理
+		Users users = usersRepository.findByEmail(email);
+		return convertToDto(users);
+	}
+	
+	/**
+	 * 
+	 */
+	private UsersDTO convertToDto(Users users) {
+		UsersDTO usersDTO = new UsersDTO();
+		usersDTO.setId(users.getId());
+		usersDTO.setName(users.getName());
+		usersDTO.setEmail(users.getEmail());
+		usersDTO.setEmailVerified(users.getEmailVerified());
+		usersDTO.setUid(users.getUid());
+		return usersDTO;
+	}
 }

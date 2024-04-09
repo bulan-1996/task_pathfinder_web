@@ -1,5 +1,8 @@
 package com.example.task_pathfinder.service;
 
+import java.util.List;
+
+import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
 import com.example.task_pathfinder.dto.TasksDTO;
@@ -22,6 +25,7 @@ public class TasksService {
 	public void registrationTasks(TasksDTO tasksDTO) {
 		// 新規追加
 		Tasks tasks = new Tasks();
+		tasks.setUserId(tasksDTO.getUserId());
 		tasks.setTaskTitle(tasksDTO.getTaskTitle());
 		tasks.setTaskStartDay(tasksDTO.getTaskStartDay());
 		tasks.setTaskEndDay(tasksDTO.getTaskEndDay());
@@ -31,5 +35,11 @@ public class TasksService {
 		tasks.setCreatedBy(tasksDTO.getCreatedBy());
 		tasks.setUpdatedBy(tasksDTO.getUpdatedBy());
 		tasksRepository.save(tasks);
+	}
+	
+	// userId情報を元にしてTasks情報を取得する処理
+	public List<Task> getTasksByUserId(int userId) {
+		// Usersテーブルからemailアドレスでidを取得する処理
+		return tasksRepository.findByUserId(userId);
 	}
 }
